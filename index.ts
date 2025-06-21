@@ -75,12 +75,31 @@ const ecsSg = new aws.ec2.SecurityGroup("ecs-sg", {
     description: "Allow HTTP/HTTPS inbound for ECS services",
     ingress: [
         { protocol: "tcp", fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },
-        { protocol: "tcp", fromPort: 443, toPort: 443, cidrBlocks: ["0.0.0.0/0"] },
+        { protocol: "tcp", fromPort: 443, toPort: 443, cidrBlocks: ["0.0.0.0/0"] }
     ],
     egress: [
         { protocol: "-1", fromPort: 0, toPort: 0, cidrBlocks: ["0.0.0.0/0"] },
     ],
     tags: { Project: "conducky", Service: "ecs" },
+});
+// Add self-referencing rules for ALB to ECS tasks
+new aws.ec2.SecurityGroupRule("ecs-sg-frontend-self", {
+    type: "ingress",
+    fromPort: 3000,
+    toPort: 3000,
+    protocol: "tcp",
+    securityGroupId: ecsSg.id,
+    sourceSecurityGroupId: ecsSg.id,
+    description: "Allow ALB to ECS frontend on 3000"
+});
+new aws.ec2.SecurityGroupRule("ecs-sg-backend-self", {
+    type: "ingress",
+    fromPort: 4000,
+    toPort: 4000,
+    protocol: "tcp",
+    securityGroupId: ecsSg.id,
+    sourceSecurityGroupId: ecsSg.id,
+    description: "Allow ALB to ECS backend on 4000"
 });
 
 // --- Application Load Balancers ---
@@ -168,7 +187,8 @@ const frontendTaskDef = new aws.ecs.TaskDefinition("frontend-taskdef", {
           { name: "NODE_ENV", value: "production" },
           { name: "NEXT_PUBLIC_API_URL", value: `http://${backendDns}` },
           { name: "BACKEND_API_URL", value: `http://${backendDns}` },
-          { name: "HEALTHCHECK_PATH", value: "/api/health" }
+          { name: "HEALTHCHECK_PATH", value: "/" },
+          { name: "REDEPLOY_TRIGGER", value: `${Date.now()}` }
         ],
         logConfiguration: {
           logDriver: "awslogs",
@@ -237,6 +257,7 @@ const backendTaskDef = new aws.ecs.TaskDefinition("backend-taskdef", {
 const frontendService = new aws.ecs.Service("frontend-service", {
     cluster: cluster.arn,
     taskDefinition: frontendTaskDef.arn,
+    forceNewDeployment: true,  // This forces pulling latest image
     desiredCount: 1,
     launchType: "FARGATE",
     networkConfiguration: {
@@ -255,6 +276,7 @@ const frontendService = new aws.ecs.Service("frontend-service", {
 const backendService = new aws.ecs.Service("backend-service", {
     cluster: cluster.arn,
     taskDefinition: backendTaskDef.arn,
+    forceNewDeployment: true,  // This forces pulling latest image
     desiredCount: 1,
     launchType: "FARGATE",
     networkConfiguration: {

@@ -42,10 +42,10 @@ This directory contains the Pulumi infrastructure-as-code for deploying the [Con
 
 Set these before deploying:
 
-- `infra:dbUsername`
-- `infra:dbPassword` (secret)
-- `infra:jwtSecret` (secret)
-- `infra:sessionSecret` (secret)
+- `conducky:dbUsername`
+- `conducky:dbPassword` (secret)
+- `conducky:jwtSecret` (secret)
+- `conducky:sessionSecret` (secret)
 
 ### AWS Settings (if not set globally)
 
@@ -56,24 +56,24 @@ Set these before deploying:
 
 Set these only if you want to override defaults or enable extra features:
 
-- `infra:containerVersion` (defaults to `"latest"`)
-- `infra:emailProvider` (default: `"console"`)
-- `infra:emailFrom` (default: `"noreply@conducky.local"`)
-- `infra:emailReplyTo` (default: `""`)
-- `infra:smtpHost` (default: `""`)
-- `infra:smtpPort` (default: `"587"`)
-- `infra:smtpSecure` (default: `"false"`)
-- `infra:smtpUser` (default: `""`)
-- `infra:smtpPass` (default: `""`)
-- `infra:sendgridApiKey` (secret, default: `""`)
-- `infra:googleClientId` (default: `""`)
-- `infra:googleClientSecret` (secret, default: `""`)
-- `infra:githubClientId` (default: `""`)
-- `infra:githubClientSecret` (secret, default: `""`)
-- `infra:frontendCpu` (default: `"512"`)
-- `infra:frontendMemory` (default: `"1024"`)
-- `infra:backendCpu` (default: `"512"`)
-- `infra:backendMemory` (default: `"1024"`)
+- `conducky:containerVersion` (defaults to `"latest"`)
+- `conducky:emailProvider` (default: `"console"`)
+- `conducky:emailFrom` (default: `"noreply@conducky.local"`)
+- `conducky:emailReplyTo` (default: `""`)
+- `conducky:smtpHost` (default: `""`)
+- `conducky:smtpPort` (default: `"587"`)
+- `conducky:smtpSecure` (default: `"false"`)
+- `conducky:smtpUser` (default: `""`)
+- `conducky:smtpPass` (default: `""`)
+- `conducky:sendgridApiKey` (secret, default: `""`)
+- `conducky:googleClientId` (default: `""`)
+- `conducky:googleClientSecret` (secret, default: `""`)
+- `conducky:githubClientId` (default: `""`)
+- `conducky:githubClientSecret` (secret, default: `""`)
+- `conducky:frontendCpu` (default: `"512"`)
+- `conducky:frontendMemory` (default: `"1024"`)
+- `conducky:backendCpu` (default: `"512"`)
+- `conducky:backendMemory` (default: `"1024"`)
 
 ## Usage
 
