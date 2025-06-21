@@ -1,0 +1,10 @@
+name: conducky
+description: Deploy the Conducky application to AWS
+runtime:
+  name: nodejs
+  options:
+    packagemanager: npm
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-typescript

@@ -1,0 +1,746 @@
+=== ECS Clusters ===
+{
+    "clusterArns": [
+        "arn:aws:ecs:us-east-1:195313946113:cluster/conducky-cluster"
+    ]
+}
+Using ECS Cluster: arn:aws:ecs:us-east-1:195313946113:cluster/conducky-cluster
+=== ECS Services ===
+{
+    "serviceArns": [
+        "arn:aws:ecs:us-east-1:195313946113:service/conducky-cluster/frontend-service-c0be465",
+        "arn:aws:ecs:us-east-1:195313946113:service/conducky-cluster/backend-service-f0e0d4f"
+    ]
+}
+Using ECS Service: arn:aws:ecs:us-east-1:195313946113:service/conducky-cluster/frontend-service-c0be465
+=== ECS Service Description ===
+{
+    "services": [
+        {
+            "serviceArn": "arn:aws:ecs:us-east-1:195313946113:service/conducky-cluster/frontend-service-c0be465",
+            "serviceName": "frontend-service-c0be465",
+            "clusterArn": "arn:aws:ecs:us-east-1:195313946113:cluster/conducky-cluster",
+            "loadBalancers": [
+                {
+                    "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce",
+                    "containerName": "frontend",
+                    "containerPort": 3000
+                }
+            ],
+            "serviceRegistries": [],
+            "status": "ACTIVE",
+            "desiredCount": 1,
+            "runningCount": 1,
+            "pendingCount": 0,
+            "launchType": "FARGATE",
+            "platformVersion": "LATEST",
+            "platformFamily": "Linux",
+            "taskDefinition": "arn:aws:ecs:us-east-1:195313946113:task-definition/frontend-taskdef:7",
+            "deploymentConfiguration": {
+                "deploymentCircuitBreaker": {
+                    "enable": false,
+                    "rollback": false
+                },
+                "maximumPercent": 200,
+                "minimumHealthyPercent": 100
+            },
+            "deployments": [
+                {
+                    "id": "ecs-svc/4131197235199353095",
+                    "status": "PRIMARY",
+                    "taskDefinition": "arn:aws:ecs:us-east-1:195313946113:task-definition/frontend-taskdef:7",
+                    "desiredCount": 1,
+                    "pendingCount": 0,
+                    "runningCount": 1,
+                    "failedTasks": 3,
+                    "createdAt": "2025-06-20T17:36:57.896000-05:00",
+                    "updatedAt": "2025-06-20T17:37:33.124000-05:00",
+                    "launchType": "FARGATE",
+                    "platformVersion": "1.4.0",
+                    "platformFamily": "Linux",
+                    "networkConfiguration": {
+                        "awsvpcConfiguration": {
+                            "subnets": [
+                                "subnet-0ac81288be86315bd",
+                                "subnet-0b244421cf7af9d20"
+                            ],
+                            "securityGroups": [
+                                "sg-0d54ed2828862735d"
+                            ],
+                            "assignPublicIp": "ENABLED"
+                        }
+                    },
+                    "rolloutState": "IN_PROGRESS",
+                    "rolloutStateReason": "ECS deployment ecs-svc/4131197235199353095 in progress."
+                }
+            ],
+            "roleArn": "arn:aws:iam::195313946113:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+            "events": [
+                {
+                    "id": "62451a2f-630e-4220-bfe7-87eae6a2aace",
+                    "createdAt": "2025-06-20T17:59:22.918000-05:00",
+                    "message": "(service frontend-service-c0be465) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce)"
+                },
+                {
+                    "id": "3385a0ff-1342-4155-b0b4-80ec067abdae",
+                    "createdAt": "2025-06-20T17:59:22.847000-05:00",
+                    "message": "(service frontend-service-c0be465, taskSet ecs-svc/4131197235199353095) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "5c651be3-5568-4388-93cb-75bf36dba3b2",
+                    "createdAt": "2025-06-20T17:59:22.843000-05:00",
+                    "message": "(service frontend-service-c0be465) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce)"
+                },
+                {
+                    "id": "2cd203ab-f0ed-4c0c-8ee4-fb555a9791c2",
+                    "createdAt": "2025-06-20T17:59:12.633000-05:00",
+                    "message": "(service frontend-service-c0be465) has stopped 1 running tasks: (task 165241d224f3490eb0006693d65bc5cc)."
+                },
+                {
+                    "id": "cdc7c614-f927-4fbf-943f-9e158649df8c",
+                    "createdAt": "2025-06-20T17:59:12.586000-05:00",
+                    "message": "(service frontend-service-c0be465) (task 165241d224f3490eb0006693d65bc5cc) (port 3000) is unhealthy in (target-group arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce) due to (reason Request timed out)."
+                },
+                {
+                    "id": "38e09f01-285a-4126-946c-6e2ccae5b5c9",
+                    "createdAt": "2025-06-20T17:58:02.217000-05:00",
+                    "message": "(service frontend-service-c0be465) registered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce)"
+                },
+                {
+                    "id": "de729f9e-29d2-44fe-8b28-d9b992226337",
+                    "createdAt": "2025-06-20T17:57:21.550000-05:00",
+                    "message": "(service frontend-service-c0be465) has started 1 tasks: (task a83107f34d2d4911bf78e8189db3737e). Amazon ECS replaced 1 tasks due to an unhealthy status."
+                },
+                {
+                    "id": "33f91c71-dbea-4b7f-9a3a-ab0d1ffb9abb",
+                    "createdAt": "2025-06-20T17:50:39.603000-05:00",
+                    "message": "(service frontend-service-c0be465) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce)"
+                },
+                {
+                    "id": "a6984666-ba36-4270-8194-41454611de8f",
+                    "createdAt": "2025-06-20T17:50:39.533000-05:00",
+                    "message": "(service frontend-service-c0be465, taskSet ecs-svc/4131197235199353095) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "e84edc7e-86eb-4f19-a2a8-07355ee99ca7",
+                    "createdAt": "2025-06-20T17:50:39.528000-05:00",
+                    "message": "(service frontend-service-c0be465) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce)"
+                },
+                {
+                    "id": "0528a8b0-d6e5-4ecb-9308-31f5b37414da",
+                    "createdAt": "2025-06-20T17:50:38.273000-05:00",
+                    "message": "(service frontend-service-c0be465) has stopped 1 running tasks: (task 135b02cf9c1d417e812c7aa24ace6a21)."
+                },
+                {
+                    "id": "56baacb9-7613-4885-a690-b3ebff2307bf",
+                    "createdAt": "2025-06-20T17:50:38.227000-05:00",
+                    "message": "(service frontend-service-c0be465) (task 135b02cf9c1d417e812c7aa24ace6a21) (port 3000) is unhealthy in (target-group arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce) due to (reason Request timed out)."
+                },
+                {
+                    "id": "4603a81d-417c-4e53-9b9a-084c6106fabc",
+                    "createdAt": "2025-06-20T17:49:27.127000-05:00",
+                    "message": "(service frontend-service-c0be465) registered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce)"
+                },
+                {
+                    "id": "2b2230e2-8926-4312-ab7b-e283ba6b5bf7",
+                    "createdAt": "2025-06-20T17:48:36.517000-05:00",
+                    "message": "(service frontend-service-c0be465) has started 1 tasks: (task 165241d224f3490eb0006693d65bc5cc). Amazon ECS replaced 1 tasks due to an unhealthy status."
+                },
+                {
+                    "id": "6badc877-dafb-4206-8b8e-8b9f92baafc6",
+                    "createdAt": "2025-06-20T17:42:14.887000-05:00",
+                    "message": "(service frontend-service-c0be465) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce)"
+                },
+                {
+                    "id": "f805a6ba-d13a-4a6a-818c-5f90ddb41082",
+                    "createdAt": "2025-06-20T17:42:14.825000-05:00",
+                    "message": "(service frontend-service-c0be465, taskSet ecs-svc/4131197235199353095) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "ae162936-5d81-489d-a6b6-93952b13ab37",
+                    "createdAt": "2025-06-20T17:42:14.822000-05:00",
+                    "message": "(service frontend-service-c0be465) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce)"
+                },
+                {
+                    "id": "573b4920-1765-4f49-8aba-e3e05a075288",
+                    "createdAt": "2025-06-20T17:42:04.420000-05:00",
+                    "message": "(service frontend-service-c0be465) has stopped 1 running tasks: (task 7be421caf8c54134b91721b2701a6165)."
+                },
+                {
+                    "id": "2d3b0f9d-2489-4353-b330-9acc72df08ba",
+                    "createdAt": "2025-06-20T17:42:04.375000-05:00",
+                    "message": "(service frontend-service-c0be465) (task 7be421caf8c54134b91721b2701a6165) (port 3000) is unhealthy in (target-group arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce) due to (reason Request timed out)."
+                },
+                {
+                    "id": "b374aa65-dca7-4a50-8f86-3d729b1f3738",
+                    "createdAt": "2025-06-20T17:40:51.989000-05:00",
+                    "message": "(service frontend-service-c0be465) registered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce)"
+                },
+                {
+                    "id": "ebe77d6b-fd73-44f5-b10b-ac846cd3bb6e",
+                    "createdAt": "2025-06-20T17:40:12.082000-05:00",
+                    "message": "(service frontend-service-c0be465) has started 1 tasks: (task 135b02cf9c1d417e812c7aa24ace6a21). Amazon ECS replaced 1 tasks due to an unhealthy status."
+                },
+                {
+                    "id": "3aeb3b45-65ec-43a9-9ebc-84e8b30eb847",
+                    "createdAt": "2025-06-20T17:37:58.565000-05:00",
+                    "message": "(service frontend-service-c0be465) registered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce)"
+                },
+                {
+                    "id": "c20a2d8a-7d73-4235-bf32-57cc84b74724",
+                    "createdAt": "2025-06-20T17:37:16.381000-05:00",
+                    "message": "(service frontend-service-c0be465) has started 1 tasks: (task 7be421caf8c54134b91721b2701a6165)."
+                }
+            ],
+            "createdAt": "2025-06-20T17:36:57.896000-05:00",
+            "placementConstraints": [],
+            "placementStrategy": [],
+            "networkConfiguration": {
+                "awsvpcConfiguration": {
+                    "subnets": [
+                        "subnet-0ac81288be86315bd",
+                        "subnet-0b244421cf7af9d20"
+                    ],
+                    "securityGroups": [
+                        "sg-0d54ed2828862735d"
+                    ],
+                    "assignPublicIp": "ENABLED"
+                }
+            },
+            "healthCheckGracePeriodSeconds": 120,
+            "schedulingStrategy": "REPLICA",
+            "deploymentController": {
+                "type": "ECS"
+            },
+            "createdBy": "arn:aws:iam::195313946113:user/conducky-deploy",
+            "enableECSManagedTags": false,
+            "propagateTags": "NONE",
+            "enableExecuteCommand": false,
+            "availabilityZoneRebalancing": "DISABLED"
+        }
+    ],
+    "failures": []
+}
+=== ECS Tasks ===
+{
+    "tasks": [
+        {
+            "attachments": [
+                {
+                    "id": "bc845287-ccd2-4579-a516-75f75d7c44bd",
+                    "type": "ElasticNetworkInterface",
+                    "status": "ATTACHED",
+                    "details": [
+                        {
+                            "name": "subnetId",
+                            "value": "subnet-0b244421cf7af9d20"
+                        },
+                        {
+                            "name": "networkInterfaceId",
+                            "value": "eni-0586ffa47639f9525"
+                        },
+                        {
+                            "name": "macAddress",
+                            "value": "0e:b8:8c:97:dc:3b"
+                        },
+                        {
+                            "name": "privateIPv4Address",
+                            "value": "10.0.81.138"
+                        }
+                    ]
+                }
+            ],
+            "attributes": [
+                {
+                    "name": "ecs.cpu-architecture",
+                    "value": "x86_64"
+                }
+            ],
+            "availabilityZone": "us-east-1a",
+            "clusterArn": "arn:aws:ecs:us-east-1:195313946113:cluster/conducky-cluster",
+            "connectivity": "CONNECTED",
+            "connectivityAt": "2025-06-20T17:57:26.484000-05:00",
+            "containers": [
+                {
+                    "containerArn": "arn:aws:ecs:us-east-1:195313946113:container/conducky-cluster/a83107f34d2d4911bf78e8189db3737e/98f99366-a62c-4542-8303-bd8c3300bdb4",
+                    "taskArn": "arn:aws:ecs:us-east-1:195313946113:task/conducky-cluster/a83107f34d2d4911bf78e8189db3737e",
+                    "name": "frontend",
+                    "image": "mattstratton/conducky-frontend:latest",
+                    "imageDigest": "sha256:66d276619461cc602ac97d915126a6ccb866aa9b05d751d9956236e3d2b069ef",
+                    "runtimeId": "a83107f34d2d4911bf78e8189db3737e-3860412285",
+                    "lastStatus": "RUNNING",
+                    "networkBindings": [],
+                    "networkInterfaces": [
+                        {
+                            "attachmentId": "bc845287-ccd2-4579-a516-75f75d7c44bd",
+                            "privateIpv4Address": "10.0.81.138"
+                        }
+                    ],
+                    "healthStatus": "UNKNOWN",
+                    "cpu": "0"
+                }
+            ],
+            "cpu": "512",
+            "createdAt": "2025-06-20T17:57:21.471000-05:00",
+            "desiredStatus": "RUNNING",
+            "enableExecuteCommand": false,
+            "group": "service:frontend-service-c0be465",
+            "healthStatus": "UNKNOWN",
+            "lastStatus": "RUNNING",
+            "launchType": "FARGATE",
+            "memory": "1024",
+            "overrides": {
+                "containerOverrides": [
+                    {
+                        "name": "frontend"
+                    }
+                ],
+                "inferenceAcceleratorOverrides": []
+            },
+            "platformVersion": "1.4.0",
+            "platformFamily": "Linux",
+            "pullStartedAt": "2025-06-20T17:57:34.432000-05:00",
+            "pullStoppedAt": "2025-06-20T17:57:52.006000-05:00",
+            "startedAt": "2025-06-20T17:58:10.742000-05:00",
+            "startedBy": "ecs-svc/4131197235199353095",
+            "tags": [],
+            "taskArn": "arn:aws:ecs:us-east-1:195313946113:task/conducky-cluster/a83107f34d2d4911bf78e8189db3737e",
+            "taskDefinitionArn": "arn:aws:ecs:us-east-1:195313946113:task-definition/frontend-taskdef:7",
+            "version": 5,
+            "ephemeralStorage": {
+                "sizeInGiB": 20
+            },
+            "fargateEphemeralStorage": {
+                "sizeInGiB": 20
+            }
+        }
+    ],
+    "failures": []
+}
+=== Load Balancers ===
+{
+    "LoadBalancers": [
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:195313946113:loadbalancer/app/frontend-alb-4cba95f/1057202b2058249d",
+            "DNSName": "frontend-alb-4cba95f-695809282.us-east-1.elb.amazonaws.com",
+            "CanonicalHostedZoneId": "Z35SXDOTRQ7X7K",
+            "CreatedTime": "2025-06-20T22:34:03.473000+00:00",
+            "LoadBalancerName": "frontend-alb-4cba95f",
+            "Scheme": "internet-facing",
+            "VpcId": "vpc-0ad59176cd3f513d5",
+            "State": {
+                "Code": "active"
+            },
+            "Type": "application",
+            "AvailabilityZones": [
+                {
+                    "ZoneName": "us-east-1b",
+                    "SubnetId": "subnet-0ac81288be86315bd",
+                    "LoadBalancerAddresses": []
+                },
+                {
+                    "ZoneName": "us-east-1a",
+                    "SubnetId": "subnet-0b244421cf7af9d20",
+                    "LoadBalancerAddresses": []
+                }
+            ],
+            "SecurityGroups": [
+                "sg-0d54ed2828862735d"
+            ],
+            "IpAddressType": "ipv4",
+            "EnablePrefixForIpv6SourceNat": "off"
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:195313946113:loadbalancer/app/backend-alb-de8a32e/dae6845c1954289e",
+            "DNSName": "backend-alb-de8a32e-595619525.us-east-1.elb.amazonaws.com",
+            "CanonicalHostedZoneId": "Z35SXDOTRQ7X7K",
+            "CreatedTime": "2025-06-20T22:34:03.897000+00:00",
+            "LoadBalancerName": "backend-alb-de8a32e",
+            "Scheme": "internet-facing",
+            "VpcId": "vpc-0ad59176cd3f513d5",
+            "State": {
+                "Code": "active"
+            },
+            "Type": "application",
+            "AvailabilityZones": [
+                {
+                    "ZoneName": "us-east-1b",
+                    "SubnetId": "subnet-0ac81288be86315bd",
+                    "LoadBalancerAddresses": []
+                },
+                {
+                    "ZoneName": "us-east-1a",
+                    "SubnetId": "subnet-0b244421cf7af9d20",
+                    "LoadBalancerAddresses": []
+                }
+            ],
+            "SecurityGroups": [
+                "sg-0d54ed2828862735d"
+            ],
+            "IpAddressType": "ipv4",
+            "EnablePrefixForIpv6SourceNat": "off"
+        }
+    ]
+}
+Using ALB: arn:aws:elasticloadbalancing:us-east-1:195313946113:loadbalancer/app/frontend-alb-4cba95f/1057202b2058249d
+=== Target Groups ===
+{
+    "TargetGroups": [
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce",
+            "TargetGroupName": "frontend-tg-e99d78d",
+            "Protocol": "HTTP",
+            "Port": 3000,
+            "VpcId": "vpc-0ad59176cd3f513d5",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 30,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 3,
+            "UnhealthyThresholdCount": 3,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [
+                "arn:aws:elasticloadbalancing:us-east-1:195313946113:loadbalancer/app/frontend-alb-4cba95f/1057202b2058249d"
+            ],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        }
+    ]
+}
+Using Target Group: arn:aws:elasticloadbalancing:us-east-1:195313946113:targetgroup/frontend-tg-e99d78d/0c22001a6e6afdce
+=== Target Health ===
+{
+    "TargetHealthDescriptions": [
+        {
+            "Target": {
+                "Id": "10.0.81.138",
+                "Port": 3000,
+                "AvailabilityZone": "us-east-1a"
+            },
+            "HealthCheckPort": "3000",
+            "TargetHealth": {
+                "State": "unhealthy",
+                "Reason": "Target.Timeout",
+                "Description": "Request timed out"
+            },
+            "AdministrativeOverride": {
+                "State": "no_override",
+                "Reason": "AdministrativeOverride.NoOverride",
+                "Description": "No override is currently active on target"
+            }
+        },
+        {
+            "Target": {
+                "Id": "10.0.217.132",
+                "Port": 3000,
+                "AvailabilityZone": "us-east-1b"
+            },
+            "HealthCheckPort": "3000",
+            "TargetHealth": {
+                "State": "draining",
+                "Reason": "Target.DeregistrationInProgress",
+                "Description": "Target deregistration is in progress"
+            },
+            "AdministrativeOverride": {
+                "State": "no_override",
+                "Reason": "AdministrativeOverride.NoOverride",
+                "Description": "No override is currently active on target"
+            }
+        }
+    ]
+}
+=== Security Groups for ALB ===
+{
+    "SecurityGroups": [
+        {
+            "GroupId": "sg-0d54ed2828862735d",
+            "IpPermissionsEgress": [
+                {
+                    "IpProtocol": "-1",
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Project",
+                    "Value": "conducky"
+                },
+                {
+                    "Key": "Service",
+                    "Value": "ecs"
+                }
+            ],
+            "VpcId": "vpc-0ad59176cd3f513d5",
+            "SecurityGroupArn": "arn:aws:ec2:us-east-1:195313946113:security-group/sg-0d54ed2828862735d",
+            "OwnerId": "195313946113",
+            "GroupName": "ecs-sg-2c39a6f",
+            "Description": "Allow HTTP/HTTPS inbound for ECS services",
+            "IpPermissions": [
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 80,
+                    "ToPort": 80,
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                },
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 443,
+                    "ToPort": 443,
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ]
+        }
+    ]
+}
+=== CloudWatch Log Groups ===
+{
+    "logGroups": [
+        {
+            "logGroupName": "conducky-ecs-logs-851c312",
+            "creationTime": 1750458703113,
+            "retentionInDays": 7,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:195313946113:log-group:conducky-ecs-logs-851c312:*",
+            "storedBytes": 0,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-east-1:195313946113:log-group:conducky-ecs-logs-851c312"
+        }
+    ]
+}
+=== Route Tables for VPC ===
+{
+    "RouteTables": [
+        {
+            "Associations": [
+                {
+                    "Main": true,
+                    "RouteTableAssociationId": "rtbassoc-09c2d2c1c0f206a48",
+                    "RouteTableId": "rtb-0a4ba4ff1ca80cb8f",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "PropagatingVgws": [],
+            "RouteTableId": "rtb-0a4ba4ff1ca80cb8f",
+            "Routes": [
+                {
+                    "DestinationCidrBlock": "10.0.0.0/16",
+                    "GatewayId": "local",
+                    "Origin": "CreateRouteTable",
+                    "State": "active"
+                }
+            ],
+            "Tags": [],
+            "VpcId": "vpc-0ad59176cd3f513d5",
+            "OwnerId": "195313946113"
+        },
+        {
+            "Associations": [
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-0a732e54338b2c012",
+                    "RouteTableId": "rtb-0c1c4978981a67aef",
+                    "SubnetId": "subnet-0ac81288be86315bd",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "PropagatingVgws": [],
+            "RouteTableId": "rtb-0c1c4978981a67aef",
+            "Routes": [
+                {
+                    "DestinationCidrBlock": "10.0.0.0/16",
+                    "GatewayId": "local",
+                    "Origin": "CreateRouteTable",
+                    "State": "active"
+                },
+                {
+                    "DestinationCidrBlock": "0.0.0.0/0",
+                    "GatewayId": "igw-09ee8f8b737ae31fe",
+                    "Origin": "CreateRoute",
+                    "State": "active"
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "conducky-vpc-public-2"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "conducky"
+                },
+                {
+                    "Key": "SubnetType",
+                    "Value": "Public"
+                }
+            ],
+            "VpcId": "vpc-0ad59176cd3f513d5",
+            "OwnerId": "195313946113"
+        },
+        {
+            "Associations": [
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-06a7980875eb1abb2",
+                    "RouteTableId": "rtb-011291929c71706d8",
+                    "SubnetId": "subnet-0ab4246ff8ff1172e",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "PropagatingVgws": [],
+            "RouteTableId": "rtb-011291929c71706d8",
+            "Routes": [
+                {
+                    "DestinationCidrBlock": "10.0.0.0/16",
+                    "GatewayId": "local",
+                    "Origin": "CreateRouteTable",
+                    "State": "active"
+                },
+                {
+                    "DestinationCidrBlock": "0.0.0.0/0",
+                    "NatGatewayId": "nat-0f41c38a69c58f938",
+                    "Origin": "CreateRoute",
+                    "State": "active"
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Project",
+                    "Value": "conducky"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "conducky-vpc-private-1"
+                },
+                {
+                    "Key": "SubnetType",
+                    "Value": "Private"
+                }
+            ],
+            "VpcId": "vpc-0ad59176cd3f513d5",
+            "OwnerId": "195313946113"
+        },
+        {
+            "Associations": [
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-018f3f6fd8020f58b",
+                    "RouteTableId": "rtb-0758a1d5a554f8972",
+                    "SubnetId": "subnet-02c430acbd8797eab",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "PropagatingVgws": [],
+            "RouteTableId": "rtb-0758a1d5a554f8972",
+            "Routes": [
+                {
+                    "DestinationCidrBlock": "10.0.0.0/16",
+                    "GatewayId": "local",
+                    "Origin": "CreateRouteTable",
+                    "State": "active"
+                },
+                {
+                    "DestinationCidrBlock": "0.0.0.0/0",
+                    "NatGatewayId": "nat-095b19158a990b677",
+                    "Origin": "CreateRoute",
+                    "State": "active"
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "SubnetType",
+                    "Value": "Private"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "conducky"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "conducky-vpc-private-2"
+                }
+            ],
+            "VpcId": "vpc-0ad59176cd3f513d5",
+            "OwnerId": "195313946113"
+        },
+        {
+            "Associations": [
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-0a5178c457ab71ab2",
+                    "RouteTableId": "rtb-089eaf101089a80d6",
+                    "SubnetId": "subnet-0b244421cf7af9d20",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "PropagatingVgws": [],
+            "RouteTableId": "rtb-089eaf101089a80d6",
+            "Routes": [
+                {
+                    "DestinationCidrBlock": "10.0.0.0/16",
+                    "GatewayId": "local",
+                    "Origin": "CreateRouteTable",
+                    "State": "active"
+                },
+                {
+                    "DestinationCidrBlock": "0.0.0.0/0",
+                    "GatewayId": "igw-09ee8f8b737ae31fe",
+                    "Origin": "CreateRoute",
+                    "State": "active"
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "SubnetType",
+                    "Value": "Public"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "conducky"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "conducky-vpc-public-1"
+                }
+            ],
+            "VpcId": "vpc-0ad59176cd3f513d5",
+            "OwnerId": "195313946113"
+        }
+    ]
+}
+=== Done ===

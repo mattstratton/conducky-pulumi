@@ -1,0 +1,10 @@
+config:
+  aws:region: us-east-1 # Set via pulumi config or environment variable
+  aws:profile: conducky-pulumi
+  conducky:dbUsername: conducky
+  conducky:dbPassword:
+    secure: AAABAOjp/iNgAO1CFafrENv2k3QuKr+/2NV7WiJsl81OhqqhSx2d6Wn2oschoPE=
+  conducky:jwtSecret:
+    secure: AAABAH6Os+Nh/YqSqqKUBdWwNG9HhKAo+aNKu8tFseCaNfOTZ32A52/U2uJTEHBr
+  conducky:sessionSecret:
+    secure: AAABAHfFmb4QFmL3ze7iLYtTePsicXkgWOCT7FT6guLMn7tky/InGJRuM7LB5LBq7Q==
